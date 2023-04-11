@@ -1,7 +1,9 @@
-import { Dialog, Box,styled } from '@mui/material'
-import React from 'react'
+import { Dialog, Box, styled } from '@mui/material'
+import React,{useContext} from 'react'
 import Menu from './Menu/Menu'
 import EmptyChart from './echat/EmptyChart'
+import ChatBox from './echat/ChatBox'
+import { AccountContext } from '../context/AccountProvider'
 const dialogStyle = {
     height: "99%",
     margin: "20px",
@@ -12,13 +14,13 @@ const dialogStyle = {
     boxShadow: "none",
     overflow: "hidden"
 }
-const Component=styled(Box)`
+const Component = styled(Box)`
 display:flex
 `
-const LeftComponent=styled(Box)`
+const LeftComponent = styled(Box)`
 min-width:480px
 `
-const RightComponent=styled(Box)`
+const RightComponent = styled(Box)`
 width:73%;
 min-width:300px;
 height:100%;
@@ -26,6 +28,7 @@ border-left:1px solid rgba(0, 0,0,0.14)
 `
 
 const ChartDialog = () => {
+    const {person}=useContext(AccountContext)
     return (
         <div>
             <Dialog
@@ -39,7 +42,12 @@ const ChartDialog = () => {
                         <Menu />
                     </LeftComponent>
                     <RightComponent>
-                        <EmptyChart />
+                        
+                        {
+                            Object.keys(person).length ? <ChatBox/> : <>
+                            <EmptyChart/>
+                            </>
+                        }
                     </RightComponent>
                 </Component>
 

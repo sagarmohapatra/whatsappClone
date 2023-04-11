@@ -16,3 +16,10 @@ export const getUser=async()=>{
         console.log("Error while calling getUser api",error.message);
     }
 }
+export const  setconversation=async(data)=>{
+    try{
+await axios.post(`${url}/conversation/add`,data)
+    }catch(error){
+        console.log("Error while calling setconversation api",error.message);
+    }
+}

@@ -37,7 +37,8 @@ const HeaderMenu = ({setopenDrawer}) => {
                 <MenuOption onClick={handleClose}>New group</MenuOption>
                 <MenuOption onClick={handleClose}>New community</MenuOption>
                 <MenuOption onClick={handleClose}>Starred messages</MenuOption>
-                <MenuOption onClick={()=>{handleClose();setopenDrawer(true);}}>Profile</MenuOption> // whenevr call two function
+                <MenuOption onClick={()=>{handleClose();setopenDrawer(true);}}>Profile</MenuOption>   {/* whenevr call two function */}
+               
                 <MenuOption onClick={handleClose}>Settings</MenuOption>
                 <MenuOption onClick={handleClose}>Log out</MenuOption>
             </Menu>
